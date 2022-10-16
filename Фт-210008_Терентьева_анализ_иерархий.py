@@ -36,6 +36,14 @@ def inMatrix(mat, n):
             sum1 += mat[j][i]
         st.append(sum1/sum)
     return st
+def errorCheck(n):
+    try:
+        n = int(n)
+    except Exception:
+        return -1
+    return n
+
+n = 0
 
 
 
