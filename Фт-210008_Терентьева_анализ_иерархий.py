@@ -29,7 +29,6 @@ def inMatrix(mat, n):
     return sum
   def koef(mat,n,sum):
     st  = []
-    #расчёт суммы отношений для каждого отдельного критерия
     for i in range(n):
         sum1=0
         for j in range(n):
@@ -56,6 +55,11 @@ outMatrix(mass, n)
 mass_sum = matrixSum(mass, n)
 print("\nСумма элементов матрицы: {0:.2f}".format(mass_sum))
 koef1 = koef(mass, n, mass_sum)
+koef1.reverse()
+print("Весовые коэффициенты:", end=" ")
+for elem in koef1:
+    print("{0:.2f}".format(elem), end=" ")
+
 
 
 
