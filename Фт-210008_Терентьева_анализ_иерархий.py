@@ -42,7 +42,6 @@ def errorCheck(n):
     except Exception:
         return -1
     return n
-
 n = 0
 while n == 0: 
     n = input("Введите количество критериев для попарного сравнения: ")
@@ -51,6 +50,12 @@ while n == 0:
         print("Ошибка ввода - количество критериев должно быть положительным целым числом")
         n = 0
 mass = [[0] * n for i in range(n)]
+mass = inMatrix(mass, n)
+print("\nМатрица попарного сравнения: ")
+outMatrix(mass, n)
+mass_sum = matrixSum(mass, n)
+print("\nСумма элементов матрицы: {0:.2f}".format(mass_sum))
+koef1 = koef(mass, n, mass_sum)
 
 
 
