@@ -27,6 +27,16 @@ def inMatrix(mat, n):
         for j in range(n):
             sum += mat[i][j]
     return sum
+  def koef(mat,n,sum):
+    st  = []
+    #расчёт суммы отношений для каждого отдельного критерия
+    for i in range(n):
+        sum1=0
+        for j in range(n):
+            sum1 += mat[j][i]
+        st.append(sum1/sum)
+    return st
+
 
 
 
