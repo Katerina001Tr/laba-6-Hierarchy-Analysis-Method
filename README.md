@@ -1,0 +1,1 @@
+# laba-6-Hierarchy-Analysis-Method
