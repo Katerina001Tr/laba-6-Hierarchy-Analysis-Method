@@ -11,3 +11,9 @@ def inMatrix(mat, n):
                         print('Отношение должно быть целым положительным числом от 1 до 9')
                     else:
                         mat[i][j] = temp
+                            for i in range(n):
+        for j in range(n):
+            if (i > j):
+                mat[i][j] = 1/mat[j][i]
+    return mat
+
