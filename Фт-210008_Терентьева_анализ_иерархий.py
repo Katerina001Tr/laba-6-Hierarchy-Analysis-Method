@@ -1,5 +1,7 @@
+#Ввод отношений критериев в матрицу
 def inMatrix(mat, n):
-  for i in range(n):
+    #Ввод отношений для верхней половины матрицы, считая от главной диагонали
+    for i in range(n):
         for j in range(n):
             if (i == j):
                 mat[i][j] = 1 
@@ -11,56 +13,63 @@ def inMatrix(mat, n):
                         print('Отношение должно быть целым положительным числом от 1 до 9')
                     else:
                         mat[i][j] = temp
-                            for i in range(n):
+    #Подстановка обратных значений для нижней части матрицы
+    for i in range(n):
         for j in range(n):
             if (i > j):
                 mat[i][j] = 1/mat[j][i]
     return mat
-  def outMatrix(mat, n):
+
+#Вывод матрицы отношений
+def outMatrix(mat, n):
     for i in range(n):
         for j in range(n):
             print("{0:.2f}".format(mat[i][j]), end=" ")
         print()
-        def matrixSum(mat, n):
+
+#Cуммирование всех элементов матрицы
+def matrixSum(mat, n):
     sum = 0
     for i in range(n):
         for j in range(n):
             sum += mat[i][j]
     return sum
-  def koef(mat,n,sum):
+
+#Расчёт весовых коэффициентов
+def koef(mat,n,sum):
     st  = []
+    #расчёт суммы отношений для каждого отдельного критерия
     for i in range(n):
         sum1=0
         for j in range(n):
             sum1 += mat[j][i]
         st.append(sum1/sum)
     return st
+
+#Проверка на ошибочный ввод
 def errorCheck(n):
     try:
         n = int(n)
     except Exception:
         return -1
     return n
+
 n = 0
+#Ввод количества критериев
 while n == 0: 
     n = input("Введите количество критериев для попарного сравнения: ")
     n = errorCheck(n)
     if (n < 1):
         print("Ошибка ввода - количество критериев должно быть положительным целым числом")
         n = 0
-mass = [[0] * n for i in range(n)]
+mass = [[0] * n for i in range(n)] # Создание двумерного массива 
 mass = inMatrix(mass, n)
 print("\nМатрица попарного сравнения: ")
 outMatrix(mass, n)
 mass_sum = matrixSum(mass, n)
 print("\nСумма элементов матрицы: {0:.2f}".format(mass_sum))
-koef1 = koef(mass, n, mass_sum)
+koef1 = koef(mass, n, mass_sum) #Создание массива, хранящего весовые коэффициенты
 koef1.reverse()
 print("Весовые коэффициенты:", end=" ")
 for elem in koef1:
-    print("{0:.2f}".format(elem), end=" ")
-
-
-
-
-
+    print("{0:.2f}".format(elem), end=" ") 
