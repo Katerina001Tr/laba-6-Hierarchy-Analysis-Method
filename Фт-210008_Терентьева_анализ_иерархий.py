@@ -21,5 +21,12 @@ def inMatrix(mat, n):
         for j in range(n):
             print("{0:.2f}".format(mat[i][j]), end=" ")
         print()
+        def matrixSum(mat, n):
+    sum = 0
+    for i in range(n):
+        for j in range(n):
+            sum += mat[i][j]
+    return sum
+
 
 
