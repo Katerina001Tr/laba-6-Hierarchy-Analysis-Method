@@ -16,4 +16,10 @@ def inMatrix(mat, n):
             if (i > j):
                 mat[i][j] = 1/mat[j][i]
     return mat
+  def outMatrix(mat, n):
+    for i in range(n):
+        for j in range(n):
+            print("{0:.2f}".format(mat[i][j]), end=" ")
+        print()
+
 
