@@ -1,6 +1,4 @@
-#Ввод отношений критериев в матрицу
-def inMatrix(mat, n):
-    #Ввод отношений для верхней половины матрицы, считая от главной диагонали
+def inMatrix(mat, n):                                                                    # ввод отношения критериев в матрице
     for i in range(n):
         for j in range(n):
             if (i == j):
@@ -13,41 +11,34 @@ def inMatrix(mat, n):
                         print('Отношение должно быть целым положительным числом от 1 до 9')
                     else:
                         mat[i][j] = temp
-    #Подстановка обратных значений для нижней части матрицы
-    for i in range(n):
+    for i in range(n):                                                        #расчет дробей в матрице
         for j in range(n):
             if (i > j):
                 mat[i][j] = 1/mat[j][i]
     return mat
-
-#Вывод матрицы отношений
-def outMatrix(mat, n):
+def outMatrix(mat, n):                                            #вывод матрицы
     for i in range(n):
         for j in range(n):
             print("{0:.2f}".format(mat[i][j]), end=" ")
         print()
-
-#Cуммирование всех элементов матрицы
-def matrixSum(mat, n):
+def matrixSum(mat, n):                                     #расчет суммы элементов матрицы
     sum = 0
     for i in range(n):
         for j in range(n):
             sum += mat[i][j]
     return sum
 
-#Расчёт весовых коэффициентов
-def koef(mat,n,sum):
+def koef(mat,n,sum):                                                               #расчет весовых коэффициентов
     st  = []
-    #расчёт суммы отношений для каждого отдельного критерия
-    for i in range(n):
+    
+    for i in range(n):                                                                #сумма отношений для каждого критерия 
         sum1=0
         for j in range(n):
             sum1 += mat[j][i]
         st.append(sum1/sum)
     return st
 
-#Проверка на ошибочный ввод
-def errorCheck(n):
+def errorCheck(n):                                                #обработка ошибок
     try:
         n = int(n)
     except Exception:
@@ -55,20 +46,20 @@ def errorCheck(n):
     return n
 
 n = 0
-#Ввод количества критериев
-while n == 0: 
+
+while n == 0:                                                                            #ввод кол-ва критериев
     n = input("Введите количество критериев для попарного сравнения: ")
     n = errorCheck(n)
     if (n < 1):
         print("Ошибка ввода - количество критериев должно быть положительным целым числом")
         n = 0
-mass = [[0] * n for i in range(n)] # Создание двумерного массива 
+mass = [[0] * n for i in range(n)]                                    #формирование матрицы
 mass = inMatrix(mass, n)
 print("\nМатрица попарного сравнения: ")
 outMatrix(mass, n)
 mass_sum = matrixSum(mass, n)
 print("\nСумма элементов матрицы: {0:.2f}".format(mass_sum))
-koef1 = koef(mass, n, mass_sum) #Создание массива, хранящего весовые коэффициенты
+koef1 = koef(mass, n, mass_sum)                                  #вывод весовых коэффициентов
 koef1.reverse()
 print("Весовые коэффициенты:", end=" ")
 for elem in koef1:
