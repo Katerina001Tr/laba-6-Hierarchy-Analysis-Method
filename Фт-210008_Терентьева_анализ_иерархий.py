@@ -34,7 +34,7 @@ def koef(mat,n,sum):                                                            
     for i in range(n):                                                                #сумма отношений для каждого критерия 
         sum1=0
         for j in range(n):
-            sum1 += mat[j][i]
+            sum1 += mat[i][j]
         st.append(sum1/sum)
     return st
 
