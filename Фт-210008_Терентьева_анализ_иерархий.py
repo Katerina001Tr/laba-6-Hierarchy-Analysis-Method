@@ -58,7 +58,7 @@ mass = inMatrix(mass, n)
 print("\nМатрица попарного сравнения: ")
 outMatrix(mass, n)
 mass_sum = matrixSum(mass, n)
-print("\nСумма элементов матрицы: {0:.2f}".format(mass_sum))
+print("\nСумма элементов матрицы: {0:.4f}".format(mass_sum))
 koef1 = koef(mass, n, mass_sum)                                  #вывод весовых коэффициентов
 
 print("Весовые коэффициенты:", end=" ")
@@ -67,4 +67,4 @@ for elem in koef1:
     sum2 = sum2 + elem
     a = round(elem, 2)
     print(a, end=" ")
-    print ('\nСумма весовых коэфициентов равна {0:.2f}'.format(sum2))
+print ('\nСумма весовых коэфициентов равна {0:.2f}'.format(sum2))
