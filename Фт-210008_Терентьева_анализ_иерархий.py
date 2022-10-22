@@ -60,7 +60,11 @@ outMatrix(mass, n)
 mass_sum = matrixSum(mass, n)
 print("\nСумма элементов матрицы: {0:.2f}".format(mass_sum))
 koef1 = koef(mass, n, mass_sum)                                  #вывод весовых коэффициентов
-koef1.reverse()
+
 print("Весовые коэффициенты:", end=" ")
+sum2=0
 for elem in koef1:
-    print("{0:.2f}".format(elem), end=" ") 
+    sum2 = sum2 + elem
+    a = round(elem, 2)
+    print(a, end=" ")
+    print ('\nСумма весовых коэфициентов равна {0:.2f}'.format(sum2))
